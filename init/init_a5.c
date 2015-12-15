@@ -116,6 +116,9 @@ void vendor_load_properties()
         property_set("ro.ril.oem.ecclist", "911");
         property_set("ro.ril.set.mtusize", "1422");
         property_set("ro.telephony.ril_class", "A5sprRIL");
+        property_set("ro.product.locale.region", "US");
+        property_set("gsm.sim.operator.iso-country", "US");
+        property_set("gsm.operator.iso-country", "US");
     } else if (strstr(bootmid, "0P9C50000")) {
         /* a5dwg (chinese) */
         dualsim_properties("dsds");
