@@ -1,0 +1,14 @@
+ro.debuggable=1
+ro.adb.secure=0
+ro.secure=0
+ro.allow.mock.location=1
+persist.sys.root_access=1
+persist.service.adb.enable=1
+persist.service.adb.notify=0
+ro.cdma.home.operator.numeric=311490
+ro.cdma.home.operator.alpha=Virgin Mobile US
+ro.telephony.default_network=8
+telephony.slteOnCdmaDevice=1
+ro.product.locale.region=US
+gsm.sim.operator.iso-country=US
+gsm.operator.iso-country=US

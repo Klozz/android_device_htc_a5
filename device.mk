@@ -163,6 +163,11 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     nfc_nci.pn54x.default
 
+# http://b/15193147
+# TODO(danalbert): Remove this once stlport is dead and gone.
+PRODUCT_PACKAGES += \
+    libstlport
+
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \

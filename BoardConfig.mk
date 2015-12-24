@@ -84,6 +84,8 @@ BOARD_EGL_CFG := device/htc/a5/configs/egl.cfg
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+#Adreno
+BOARD_USES_OPENSSL_SYMBOLS := true
 
 # Includes
 TARGET_SPECIFIC_HEADER_PATH := device/htc/a5/include
@@ -104,8 +106,8 @@ BOARD_NFC_CHIPSET := pn547
 TARGET_POWERHAL_VARIANT := qcom
 
 # RIL
-BOARD_PROVIDES_LIBRIL := true
-BOARD_RIL_CLASS := ../../../device/htc/a5/ril/
+#BOARD_PROVIDES_LIBRIL := true
+#BOARD_RIL_CLASS := ../../../device/htc/a5/ril/
 
 # RPC
 TARGET_NO_RPC := true
@@ -151,26 +153,26 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/htc/a5/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    akmd.te \
-    device.te \
-    file_contexts \
-    file.te \
-    init.te \
-    kernel.te \
-    mediaserver.te \
-    mm-qcamerad.te \
-    mpdecision.te \
-    platform_app.te \
-    property_contexts \
-    recovery.te \
-    rmt_storage.te \
-    system_server.te \
-    thermal-engine.te \
-    ueventd.te \
-    vibe_dev.te \
-    vold.te \
-    wpa.te
+#BOARD_SEPOLICY_UNION += \
+#    akmd.te \
+#    device.te \
+#    file_contexts \
+#    file.te \
+#    init.te \
+#    kernel.te \
+#    mediaserver.te \
+#    mm-qcamerad.te \
+#    mpdecision.te \
+#    platform_app.te \
+#    property_contexts \
+#    recovery.te \
+#    rmt_storage.te \
+#    system_server.te \
+#    thermal-engine.te \
+#    ueventd.te \
+#    vibe_dev.te \
+#    vold.te \
+#    wpa.te
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
@@ -178,7 +180,7 @@ TARGET_INIT_VENDOR_LIB := libinit_a5
 TARGET_LIBINIT_DEFINES_FILE := device/htc/a5/init/init_a5.c
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/a5/releasetools
+#TARGET_RELEASETOOLS_EXTENSIONS := device/htc/a5/releasetools
 
 # Webkit
 ENABLE_WEBGL := true
