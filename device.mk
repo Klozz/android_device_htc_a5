@@ -89,7 +89,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8226
+    camera.msm8226 \
+    SnapdragonCamera
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
