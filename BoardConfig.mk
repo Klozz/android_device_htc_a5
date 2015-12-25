@@ -177,7 +177,7 @@ BOARD_SEPOLICY_DIRS += device/htc/a5/sepolicy
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_a5
-TARGET_LIBINIT_DEFINES_FILE := device/htc/a5/init/init_a5.c
+TARGET_LIBINIT_DEFINES_FILE := device/htc/a5/init/init_a5.cpp
 
 # Releasetools
 #TARGET_RELEASETOOLS_EXTENSIONS := device/htc/a5/releasetools
