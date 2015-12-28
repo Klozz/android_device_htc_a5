@@ -43,7 +43,7 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 MALLOC_IMPL := dlmalloc
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 zcache androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 zcache
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -84,14 +84,9 @@ BOARD_EGL_CFG := device/htc/a5/configs/egl.cfg
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-#Adreno
-BOARD_USES_OPENSSL_SYMBOLS := true
 
 # Includes
 TARGET_SPECIFIC_HEADER_PATH := device/htc/a5/include
-
-# Libc extensions
-BOARD_PROVIDES_ADDITIONAL_BIONIC_STATIC_LIBS += libc_htc_symbols
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true

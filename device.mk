@@ -40,6 +40,10 @@ PRODUCT_PACKAGES += \
    init.qcom.bt.bluedroid.sh \
    init.qcom.bt.sh
 
+# HTC logging symbols
+PRODUCT_PACKAGES += \
+    libshim_log
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
