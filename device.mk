@@ -93,7 +93,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8226
+   camera.msm8226 \
+   libcam
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -187,8 +188,8 @@ PRODUCT_PACKAGES += \
     libdashplayer \
     qcmediaplayer
 
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+#PRODUCT_BOOT_JARS += \
+#    qcmediaplayer
 
 # Power
 PRODUCT_PACKAGES += \

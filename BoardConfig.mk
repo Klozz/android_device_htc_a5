@@ -43,7 +43,7 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 MALLOC_IMPL := dlmalloc
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 zcache
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3 zcache androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -144,35 +144,14 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 TARGET_RECOVERY_FSTAB := device/htc/a5/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
-# SELinux
-include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/htc/a5/sepolicy
-
-#BOARD_SEPOLICY_UNION += \
-#    akmd.te \
-#    device.te \
-#    file_contexts \
-#    file.te \
-#    init.te \
-#    kernel.te \
-#    mediaserver.te \
-#    mm-qcamerad.te \
-#    mpdecision.te \
-#    platform_app.te \
-#    property_contexts \
-#    recovery.te \
-#    rmt_storage.te \
-#    system_server.te \
-#    thermal-engine.te \
-#    ueventd.te \
-#    vibe_dev.te \
-#    vold.te \
-#    wpa.te
-
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_a5
 TARGET_LIBINIT_DEFINES_FILE := device/htc/a5/init/init_a5.cpp
+
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += device/htc/a5/sepolicy
 
 # Releasetools
 #TARGET_RELEASETOOLS_EXTENSIONS := device/htc/a5/releasetools
