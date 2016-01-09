@@ -1,6 +1,8 @@
 #!/system/bin/sh
-export PATH=/system/xbin:$PATH
 
+#
+# start ril-daemon only for targets on which radio is present
+#
 multisim=`getprop persist.radio.multisim.config`
 
 if [ "$multisim" = "dsds" ] || [ "$multisim" = "dsda" ]; then
