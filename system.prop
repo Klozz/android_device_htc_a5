@@ -49,6 +49,7 @@ mm.enable.smoothstreaming=true
 
 # Camera
 camera2.portability.force_api=1
+persist.camera.maxopen=3
 
 # GPS
 persist.gps.qc_nlp_in_use=0

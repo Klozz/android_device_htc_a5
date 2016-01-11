@@ -16,6 +16,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-hwui-memory.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -31,6 +32,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.power.rc \
     init.qcom.usb.rc \
@@ -81,10 +83,6 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
-# Art
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    dalvik.vm.dex2oat-swap=false
-
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -99,13 +97,14 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
    camera.msm8226 \
+#   libcamera_parameters_ext \
+   libxml2 \
    libcam
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
-
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -114,7 +113,10 @@ PRODUCT_PACKAGES += \
     gralloc.msm8226 \
     memtrack.msm8226 \
     libgenlock \
-    liboverlay \
+    liboverlay 
+
+# SSL Compat
+PRODUCT_PACKAGES += \
     libboringssl-compat
 
 # Keylayouts and Keychars
