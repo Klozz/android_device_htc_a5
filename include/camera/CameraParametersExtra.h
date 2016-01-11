@@ -60,7 +60,7 @@ const char CameraParameters::KEY_AE_BRACKET_HDR[] = "ae-bracket-hdr"; \
 const char CameraParameters::KEY_APP_OIS_SETTING[] = "ois-setting"; \
 const char CameraParameters::KEY_AUTO_EXPOSURE[] = "auto-exposure"; \
 const char CameraParameters::KEY_CAMERA_MODE[] = "camera-mode"; \
-const char CameraParameters::KEY_CAPTURE_MODEE[] = "capture-mode"; \
+const char CameraParameters::KEY_CAPTURE_MODE[] = "capture-mode"; \
 const char CameraParameters::KEY_CONTI_BURST_STATE[] = "contiburst-state"; \
 const char CameraParameters::KEY_CONTIBURST_TYPE[] = "contiburst-type"; \
 const char CameraParameters::KEY_CONTRAST[] = "contrast"; \
@@ -351,7 +351,7 @@ struct FPSRange{ \
     static const char KEY_APP_OIS_SETTING[]; \
     static const char KEY_AUTO_EXPOSURE[]; \
     static const char KEY_CAMERA_MODE[]; \
-    static const char KEY_CAPTURE_MODEE[]; \
+    static const char KEY_CAPTURE_MODE[]; \
     static const char KEY_CONTI_BURST_STATE[]; \
     static const char KEY_CONTIBURST_TYPE[]; \
     static const char KEY_CONTRAST[]; \
