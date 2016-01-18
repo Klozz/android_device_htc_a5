@@ -107,7 +107,9 @@ void vendor_load_properties()
         property_set("ro.ril.set.mtusize", "1420");
     } else if (strstr(bootmid, "0P9C30000")) {
         /* a5chl */
-        cdma_properties("1", "8", "311490", "Virgin Mobile US");
+        if (strstr(carrier, "Sprint")) {
+            cdma_properties("1", "8", "310120", "Sprint");
+        } else cdma_properties("1", "8", "311490", "Virgin Mobile");
         property_set("ro.build.fingerprint", "htc/sprint_wwe_vm/htc_a5chl:5.0.2/LRX22G/510432.2:user/release-keys");
         property_set("ro.build.description", "2.33.652.2 CL510432 release-keys");
         property_set("ro.product.model", "710C");
@@ -116,9 +118,6 @@ void vendor_load_properties()
         property_set("ro.ril.oem.ecclist", "911");
         property_set("ro.ril.set.mtusize", "1422");
         property_set("ro.telephony.ril_class", "A5sprRIL");
-        property_set("ro.product.locale.region", "US");
-        property_set("gsm.sim.operator.iso-country", "US");
-        property_set("gsm.operator.iso-country", "US");
     } else if (strstr(bootmid, "0P9C50000")) {
         /* a5dwg (chinese) */
         dualsim_properties("dsds");

@@ -31,6 +31,8 @@
 
 #include <hardware/lights.h>
 
+#define UNUSED __attribute__((unused))
+
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
@@ -93,7 +95,7 @@ static int is_lit(struct light_state_t const* state) {
   return state->color & 0x00ffffff;
 }
 
-static void set_speaker_light_locked(struct light_device_t *dev,
+static void set_speaker_light_locked(UNUSED struct light_device_t *dev,
                                      struct light_state_t *state) {
   unsigned int colorRGB = state->color & 0xFFFFFF;
   unsigned int color = LED_BLANK;
@@ -171,9 +173,9 @@ static void set_speaker_light_locked(struct light_device_t *dev,
   }
 }
 
-static void set_speaker_light_locked_dual(struct light_device_t *dev,
+static void set_speaker_light_locked_dual(UNUSED struct light_device_t *dev,
                                           struct light_state_t *bstate,
-                                          struct light_state_t *nstate) {
+                                          UNUSED struct light_state_t *nstate) {
   unsigned int bcolorRGB = bstate->color & 0xFFFFFF;
   unsigned int bcolor = LED_BLANK;
   unsigned int blinkMode = BLINK_MODE_LONG;
@@ -215,12 +217,12 @@ static int rgb_to_brightness(struct light_state_t const* state)
           (29 * (color & 0x00ff))) >> 8;
 }
 
-static int set_light_buttons(struct light_device_t* dev,
+static int set_light_buttons(UNUSED struct light_device_t* dev,
                              struct light_state_t const* state) {
   return 0; /* No physical buttons on this device */
 }
 
-static int set_light_backlight(struct light_device_t* dev,
+static int set_light_backlight(UNUSED struct light_device_t* dev,
                                struct light_state_t const* state) {
   int err = 0;
   int brightness = rgb_to_brightness(state);
@@ -242,8 +244,8 @@ static int set_light_battery(struct light_device_t* dev,
   return 0;
 }
 
-static int set_light_attention(struct light_device_t* dev,
-                               struct light_state_t const* state) {
+static int set_light_attention(UNUSED struct light_device_t* dev,
+                               UNUSED struct light_state_t const* state) {
   return 0;
 }
 

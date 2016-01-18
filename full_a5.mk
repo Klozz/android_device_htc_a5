@@ -15,6 +15,7 @@
 # Inherit a5-specific vendor tree
 $(call inherit-product-if-exists, vendor/htc/a5/a5-vendor.mk)
 
+
 # Inherit from a5
 $(call inherit-product, device/htc/a5/device.mk)
 

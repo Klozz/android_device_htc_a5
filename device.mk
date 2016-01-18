@@ -31,6 +31,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.power.rc \
     init.qcom.usb.rc \
@@ -82,8 +83,8 @@ PRODUCT_PACKAGES += \
     tinymix
 
 # Art
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-swap=false
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    dalvik.vm.dex2oat-swap=false
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -99,6 +100,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
    camera.msm8226 \
+   SnapdragonCamera \
    libcam
 
 # Filesystem management tools
@@ -206,6 +208,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/htc/a5/releasetools/variant_script.sh:install/bin/variant_script.sh
 
+# Wifi firmware
+PRODUCT_PACKAGES += \
+    wcnss_service
+
+# WiFi config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
@@ -217,6 +229,3 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
-
-PRODUCT_PACKAGES += \
-    SnapdragonCamera 
