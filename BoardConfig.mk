@@ -1,10 +1,11 @@
+#
 # Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -72,6 +73,7 @@ BLUETOOTH_HCI_USE_MCT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/a5/bluetooth
 
 # Camera
+COMMON_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND='{"htc.camera.sensor.", AID_CAMERA, 0}, {"camera.4k2k.", AID_MEDIA, 0},'
 #TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_ext
@@ -94,6 +96,9 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
 # Includes
 TARGET_SPECIFIC_HEADER_PATH := device/htc/a5/include
+# FM Radio
+TARGET_FM_LEGACY_PATCHLOADER := true
+
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -110,6 +115,9 @@ TARGET_POWERHAL_VARIANT := qcom
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_CLASS := ../../../device/htc/a5/ril/
+# Radio
+TARGET_RIL_VARIANT := caf
+
 
 # RPC
 TARGET_NO_RPC := true
@@ -166,6 +174,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/htc/a5/releasetools
 BOARD_HARDWARE_CLASS := \
     hardware/cyanogen/cmhw \
     $(LOCAL_PATH)/cmhw
+
+# Properties
+TARGET_SYSTEM_PROP += device/htc/a5/system.prop
 
 # inherit from the proprietary version
 -include vendor/htc/a5/BoardConfigVendor.mk

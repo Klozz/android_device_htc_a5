@@ -13,9 +13,10 @@
 # limitations under the License.
 #
 
+
+# call the proprietary setup
+$(call inherit-product, vendor/htc/a5/a5-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -68,8 +69,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     $(LOCAL_PATH)/configs/com.htc.software.market.xml:system/etc/permissions/com.htc.software.market.xml
+
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
 # Audio
 PRODUCT_PACKAGES += \
+    audiod \
     audio.a2dp.default \
     audio_amplifier.msm8226 \
     audio_policy.msm8226 \
@@ -101,13 +106,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    camera.msm8226 \
    SnapdragonCamera \
-   libcam
+   libcam \
+   libxml2
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
+# FM
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -176,18 +186,15 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libextmedia_jni \
-    libOmxAacEnc \
-    libOmxAmrEnc \
+    libdashplayer \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
-    libOmxVidcCommon \
-    libstagefrighthw
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
 
 # Power
 PRODUCT_PACKAGES += \
@@ -208,8 +215,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/htc/a5/releasetools/variant_script.sh:install/bin/variant_script.sh
 
-# Wifi firmware
 PRODUCT_PACKAGES += \
+    libcurl \
+    libqsap_sdk \
+    libQWiFiSoftApCfg \
     wcnss_service
 
 # WiFi config
